@@ -5,28 +5,60 @@ import { getMaskHistory, putMaskHistory } from "../function/MaskHistoryApi";
 
 function WeekRecord() {
   const [maskHistory, setMaskHistory] = useState();
+  const [noMask, setNoMask] = useState([]);
   const today = new Date();
   const todayText =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-
   useEffect(() => {
     getMaskHistory(todayText).then((res) => {
-      if (res.statusCode) {
-        setMaskHistory(res.data);
+      if (res.statusCode == 200) {
+        setMaskHistory(res.data.reverse());
       } else {
         console.log(res.statusCode);
       }
     });
   }, []);
 
-  console.log(maskHistory);
+  useEffect(() => {
+    if (maskHistory) {
+      setNoMask(
+        maskHistory.map((i) => {
+          if (i.outing > i.wearing) {
+            return i.date;
+          } else {
+            return null;
+          }
+        })
+      );
+    }
+  }, [maskHistory]);
 
   return (
     <div>
       <ReactWeeklyDayPicker
         dayCount={7}
         startDay={new Date().setDate(today.getDate() - 6)}
+        todayText={"-오늘-"}
+        unavailableText={"  "}
+        beforeToday={true}
+        unavailables={{
+          dates: noMask, //unavailable dates list
+        }}
       />
+
+      <div className="rwdpText__Wrapper">
+        <div>
+          {maskHistory
+            ? maskHistory.map((item, idx) => (
+                <div key={idx.toString()}>
+                  {item.outing !== 0
+                    ? item.outing + "중" + item.wearing + "번 착용"
+                    : null}
+                </div>
+              ))
+            : null}
+        </div>
+      </div>
     </div>
   );
 }

@@ -51,7 +51,7 @@ function CovidStatistics() {
 
   useEffect(() => {
     getCovidNum(today, today_minus7).then((datas) => {
-      setItem(datas.data.body.items.item);
+      datas.data ? setItem(datas.data.body.items.item) : setItem();
     });
     setCovidData({
       labels: ["1", "2", "3", "4", "5", "6", "7"],
@@ -90,9 +90,6 @@ function CovidStatistics() {
     });
     labels.reverse();
     labels.splice(7);
-
-    console.log(decideCnt);
-    console.log(labels);
 
     //data set
     setCovidData({
