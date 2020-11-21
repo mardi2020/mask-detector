@@ -1,4 +1,65 @@
-.rwdpDayBoxDesktop .rwdp-DayCircle-unavailable {
-  border-color: white;
-  color: white;
+.rwdpDayBoxDesktop .rwdp-DayCircle-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: default;
+  outline: none;
+}
+
+.rwdpDayBoxDesktop .rwdp-DayCircle-selected {
+  background-color: transparent;
+  outline: none;
+}
+
+.rwdpDayBoxDesktop .rwdp-DayCircle {
+  border-color: blueviolet;
+  outline: none;
+}
+
+.rwdpDayBoxDesktop .rwdp-DayCircle > strong,
+.rwdpDayBoxDesktop .rwdp-DayCircle > div:first-of-type {
+  color: blueviolet;
+}
+
+.rwdpDayBoxDesktop .rwdp-DayCircle-unavailable,
+.rwdpDayBoxDesktop .rwdp-DayCircle-unavailable > strong,
+.rwdpDayBoxDesktop .rwdp-DayCircle-unavailable > div:first-of-type {
+  border-color: red;
+  color: red;
+}
+
+.rwdpPrevWeekArrow,
+.rwdpNextWeekArrow {
+  display: none;
+}
+
+.rwdpDayBoxDesktop .rwdp-DayCircle-today {
+  font-weight: bold;
+}
+
+.rwdpText__Wrapper {
+  padding: 0 30px;
+  position: relative;
+  display: block;
+}
+
+.rwdpText__Wrapper > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rwdpText__Wrapper > div > div {
+  padding: 1px 6px;
+  width: 80px;
+  min-width: 80px;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.faceEmoji__Wrapper > img,
+.faceEmoji__Wrapper > div > img {
+  width: 40%;
+}
+
+.faceEmoji__Wrapper > div > div {
+  font-size: 0.4em;
 }

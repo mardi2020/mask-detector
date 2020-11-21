@@ -12,21 +12,20 @@ function CovidStatistics() {
   let decideCnt = [];
   let labels = [];
   let dataColor = [
-    "#acb1d9",
-    "#acb1d9",
-    "#acb1d9",
-    "#acb1d9",
-    "#acb1d9",
-    "#acb1d9",
-    "#d04848",
+    "#837FFF",
+    "#837FFF",
+    "#837FFF",
+    "#837FFF",
+    "#837FFF",
+    "#837FFF",
+    "#FD7468",
   ];
   const options = {
     responsive: true,
     plugins: {
       datalabels: {
         display: true,
-        //color: "#696868",
-        color: "white",
+        color: "#000000",
         anchor: "end",
       },
     },
@@ -51,7 +50,7 @@ function CovidStatistics() {
 
   useEffect(() => {
     getCovidNum(today, today_minus7).then((datas) => {
-      setItem(datas.data.body.items.item);
+      datas.data ? setItem(datas.data.body.items.item) : setItem();
     });
     setCovidData({
       labels: ["1", "2", "3", "4", "5", "6", "7"],
@@ -91,9 +90,6 @@ function CovidStatistics() {
     labels.reverse();
     labels.splice(7);
 
-    console.log(decideCnt);
-    console.log(labels);
-
     //data set
     setCovidData({
       labels: labels ? labels : ["1", "2", "3", "4", "5", "6", "7"],
@@ -118,8 +114,8 @@ function CovidStatistics() {
           data={covidData}
           type="bar"
           options={options}
-          width={500}
-          height={300}
+          width={400}
+          height={180}
         />
       </div>
     </div>

@@ -1,7 +1,8 @@
 .News__Wrapper {
-  width: 50%;
-  margin-left: 5%;
-  height: 50vh;
+  height: 90vh;
+  border-radius: 20px;
+  background-color: #f7f7fe;
+  padding: 2%;
 }
 .News-box {
   width: 100%;
@@ -11,6 +12,7 @@
 
 .News-Content {
   text-align: start;
+  cursor: pointer;
 }
 
 .News-title {
