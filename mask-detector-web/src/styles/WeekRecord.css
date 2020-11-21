@@ -53,3 +53,12 @@
   position: relative;
   border: 2px solid transparent;
 }
+
+.faceEmoji__Wrapper > img,
+.faceEmoji__Wrapper > div > img {
+  width: 40%;
+}
+
+.faceEmoji__Wrapper > div > div {
+  font-size: 0.4em;
+}
