@@ -1,4 +1,5 @@
 .rwdpDayBoxDesktop .rwdp-DayCircle-container {
+  margin-top: 10px;
   margin-bottom: 10px;
   cursor: default;
   outline: none;
@@ -22,8 +23,8 @@
 .rwdpDayBoxDesktop .rwdp-DayCircle-unavailable,
 .rwdpDayBoxDesktop .rwdp-DayCircle-unavailable > strong,
 .rwdpDayBoxDesktop .rwdp-DayCircle-unavailable > div:first-of-type {
-  border-color: white;
-  color: white;
+  border-color: red;
+  color: red;
 }
 
 .rwdpPrevWeekArrow,

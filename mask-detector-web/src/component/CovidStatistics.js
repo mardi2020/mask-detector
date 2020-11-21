@@ -12,21 +12,20 @@ function CovidStatistics() {
   let decideCnt = [];
   let labels = [];
   let dataColor = [
-    "#acb1d9",
-    "#acb1d9",
-    "#acb1d9",
-    "#acb1d9",
-    "#acb1d9",
-    "#acb1d9",
-    "#d04848",
+    "#837FFF",
+    "#837FFF",
+    "#837FFF",
+    "#837FFF",
+    "#837FFF",
+    "#837FFF",
+    "#FD7468",
   ];
   const options = {
     responsive: true,
     plugins: {
       datalabels: {
         display: true,
-        //color: "#696868",
-        color: "white",
+        color: "#000000",
         anchor: "end",
       },
     },
@@ -115,8 +114,8 @@ function CovidStatistics() {
           data={covidData}
           type="bar"
           options={options}
-          width={500}
-          height={300}
+          width={400}
+          height={180}
         />
       </div>
     </div>
