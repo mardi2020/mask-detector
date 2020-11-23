@@ -3,8 +3,27 @@ import "../styles/IsMaskOn.css";
 
 function IsMaskOn() {
   const [onOff, setOnOff] = useState(false);
+  const conn = new WebSocket(
+    "wss://a80a3x9fs2.execute-api.us-east-1.amazonaws.com/production"
+  );
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    //socket 통신 연결
+    conn.onopen = () => {
+      console.log("connected");
+    };
+    // listen to onmessage event
+    conn.onmessage = (evt) => {
+      // 메시지 왔을 때 할일 (evt에 저장)
+      const message = JSON.parse(evt.data);
+      console.log(message);
+      setOnOff(false);
+    };
+
+    conn.onclose = () => {
+      console.log("disconnected");
+    };
+  }, []);
 
   return (
     <div className="IsMaskOn__Wrapper">
