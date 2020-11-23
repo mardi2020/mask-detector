@@ -6,7 +6,7 @@ const putMaskHistory = async (todayText, isMaskOn) => {
   await axios({
     method: "put",
     url:
-      "https://c5cqq8vmdd.execute-api.us-east-1.amazonaws.com/dev/mask-history",
+      "https://m6lhwe6p4g.execute-api.us-east-1.amazonaws.com/dev/mask-history",
     headers: {
       Accept: "application/json",
     },
@@ -34,7 +34,7 @@ const getMaskHistory = async (todayText) => {
   await axios({
     method: "get",
     url:
-      "https://c5cqq8vmdd.execute-api.us-east-1.amazonaws.com/dev/mask-history",
+      "https://m6lhwe6p4g.execute-api.us-east-1.amazonaws.com/dev/mask-history",
     headers: {
       Accept: "application/json",
     },

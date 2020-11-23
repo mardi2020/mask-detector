@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/IsMaskOn.css";
 
 function IsMaskOn() {
   const [onOff, setOnOff] = useState(false);
+
+  useEffect(() => {}, []);
 
   return (
     <div className="IsMaskOn__Wrapper">
