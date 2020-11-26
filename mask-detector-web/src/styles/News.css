@@ -1,6 +1,8 @@
 .News__Wrapper {
   height: 90vh;
   border-radius: 20px;
+  /* border: 3px solid white; */
+  border: 3px solid var(--point-color);
   background-color: #f7f7fe;
   padding: 2%;
 }
