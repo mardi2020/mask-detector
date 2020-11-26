@@ -13,6 +13,7 @@
 .News-Content {
   text-align: start;
   cursor: pointer;
+  padding-bottom: 5%;
 }
 
 .News-title {

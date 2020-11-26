@@ -16,7 +16,8 @@
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.3",
     "react-weekly-day-picker": "^1.0.3",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "socket.io-client": "^3.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

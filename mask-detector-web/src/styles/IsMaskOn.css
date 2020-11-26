@@ -7,7 +7,7 @@
   font-size: 2rem;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 /* CLOUDS */
 /* body:before {
   content: "";
@@ -42,6 +42,7 @@ h1 {
 }
 
 h1 span {
+  font-family: "Jua", sans-serif;
   position: relative;
   top: 20px;
   display: inline-block;
