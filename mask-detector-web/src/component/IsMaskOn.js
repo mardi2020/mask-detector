@@ -16,8 +16,8 @@ function IsMaskOn() {
     conn.onmessage = (evt) => {
       // 메시지 왔을 때 할일 (evt에 저장)
       const message = JSON.parse(evt.data);
-      console.log(message);
-      setOnOff(false);
+      console.log(message.withMask);
+      setOnOff(message.withMask);
     };
 
     conn.onclose = () => {
@@ -30,15 +30,15 @@ function IsMaskOn() {
       {/* <div className="IsMaskOn-result">IsMaskOn Text</div> */}
       {onOff === true ? (
         <h1>
-          <span>V</span>
-          <span>e</span>
-          <span>r</span>
-          <span>y</span>
+          <span>오</span>
+          <span>늘</span>
+          <span>도</span>
           <span>&nbsp;</span>
-          <span>G</span>
-          <span>o</span>
-          <span>o</span>
-          <span>d</span>
+          <span>좋</span>
+          <span>은</span>
+          <span>하</span>
+          <span>루</span>
+          <span>:)</span>
         </h1>
       ) : (
         <h1>
@@ -48,6 +48,10 @@ function IsMaskOn() {
           <span>착</span>
           <span>용</span>
           <span>해</span>
+          <span>주</span>
+          <span>세</span>
+          <span>요</span>
+          <span>!</span>
         </h1>
       )}
     </div>
