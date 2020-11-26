@@ -18,7 +18,7 @@ def _send_to_connection(connection_id, data, event):
     gatewayapi = boto3.client("apigatewaymanagementapi",
             #endpoint_url = "https://" + event["requestContext"]["domainName"] +
             #        "/" + event["requestContext"]["stage"])
-            endpoint_url = "https://osthfcjrw8.execute-api.us-east-1.amazonaws.com/production")
+            endpoint_url = "https://a80a3x9fs2.execute-api.us-east-1.amazonaws.com/production")
     response = gatewayapi.post_to_connection(ConnectionId=connection_id,
             Data=json.dumps(data).encode('utf-8'))
     print(response)
@@ -38,7 +38,9 @@ def lambda_handler(event, context):
     dateitem = event['Records'][0]['dynamodb']['NewImage']['date']['S']
     outingitem = event['Records'][0]['dynamodb']['NewImage']['outing']['N']
     wearingitem = event['Records'][0]['dynamodb']['NewImage']['wearing']['N']
-    data = {'date':dateitem, 'outing':outingitem, 'wearing':wearingitem}
+    withMask = event['Records'][0]['dynamodb']['NewImage']['withMask']['BOOL']
+    
+    data = {'date':dateitem, 'outing':outingitem, 'wearing':wearingitem, 'withMask':withMask}
     valresp = ""
     for x in range(length):
         connectionID = data1[x]['connection_id']
