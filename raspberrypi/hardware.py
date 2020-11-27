@@ -1,16 +1,16 @@
 import RPi.GPIO as GPIO
 import datetime as dt      
 import time
-import os
+import requests
+import predict
+import json
 
-#camera = picamera.PiCamera()
 GPIO.setmode(GPIO.BCM)
-
 buzz = 23
-
 usleep = lambda x:time.sleep(x/1000000.0)
-
 TP, EP = 4, 17
+
+URL ='https://m6lhwe6p4g.execute-api.us-east-1.amazonaws.com/dev/mask-history'
 
 def getDistance():
     fDistance = 0.0
@@ -41,9 +41,6 @@ def makeTone(freq):
     scale.start(10)
     time.sleep(0.5)
     scale.stop()
-    
-def CapturePhoto(i):
-    os.system('sudo raspistill -o test'+str(i)+'.jpg')
 
 # main 
 GPIO.setmode(GPIO.BCM)
@@ -52,13 +49,19 @@ GPIO.setup(buzz, GPIO.OUT)
 GPIO.setup(TP, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(EP, GPIO.IN)
 time.sleep(0.5)
-i = 1
+
 while 1 :
     fDistance = getDistance()
-    print("Distance : %.4f"%(fDistance))
+    #print("Distance : %.4f"%(fDistance))
     
     if fDistance < 100.0 :
         makeTone(523)
-        CapturePhoto(i)
-        i += 1
+        prediction = predict.main()
+        today = dt.datetime.today().strftime("%Y-%m-%d")
+        senddict = {'date':today, 'withMask':prediction}
+        #print(senddict)
+        res = requests.put(URL, data=json.dumps(senddict))
+        print("Predicted : ", prediction)
+        print(res.text)
+        
     time.sleep(1)
