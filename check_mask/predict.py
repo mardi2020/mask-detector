@@ -55,28 +55,37 @@ def predict_image(input_data):
 	interpreter.invoke()
 
 def main():
+  cnt=0
+  is_Detected=False
   cap = cv2.VideoCapture(0)
+  start_time=time.time()
   while(True):
     ret, frame = cap.read()
 
     cv2.rectangle(frame,(x,y), (x+w,y+h), (0, 255, 0), 2)
     face = frame[y-2:y+h-2, x-2:x+w-2]
-    
-    # face=cv2.imread(path)
     pred_img = prepare_image(face.copy())
     predict_image(pred_img)
     result = interpreter.get_tensor(output_details[0]['index'])[0]
     idx = int(result[1])
     print(classes[idx])
     cv2.imshow('test', frame)
+    if time.time()-start_time>10 and time.time()-start_time>2:
+      break
+    if idx==0:
+      cnt+=1
+      print(cnt)
+    if cnt>30:
+      is_Detected=True
+      break
     ch=cv2.waitKey(1)
     if ch==27:
         break
     if ch==32:
         cv2.waitKey(0)
-        cnt=cnt+1
   cap.release()
   cv2.destroyAllWindows()
+  return is_Detected
 
 if __name__ == '__main__':
 	main()
