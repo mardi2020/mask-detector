@@ -66,6 +66,18 @@ function CovidStatistics() {
   }, []);
 
   useEffect(() => {
+    if (item.length > 8) {
+      setItem(
+        item.filter((it, idx) => {
+          if (idx > 1) {
+            return item[idx - 1].createDt !== item[idx].createDt;
+          } else {
+            return item;
+          }
+        })
+      );
+    }
+
     let tmp = 0,
       todaycnt = 0;
     decideCnt = item.map((element) => {
