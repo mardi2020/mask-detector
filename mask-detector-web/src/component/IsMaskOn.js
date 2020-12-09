@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/IsMaskOn.css";
 
 function IsMaskOn() {
-  const [onOff, setOnOff] = useState(false);
+  const [onOff, setOnOff] = useState(true);
   const conn = new WebSocket(
     "wss://a80a3x9fs2.execute-api.us-east-1.amazonaws.com/production"
   );
