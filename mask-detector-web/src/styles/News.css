@@ -1,0 +1,37 @@
+.News__Wrapper {
+  height: 90vh;
+  border-radius: 20px;
+  /* border: 3px solid white; */
+  border: 3px solid var(--point-color);
+  background-color: #f7f7fe;
+  padding: 2%;
+}
+.News-box {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.News-Content {
+  text-align: start;
+  cursor: pointer;
+  padding-bottom: 5%;
+}
+
+.News-title {
+  font-weight: bold;
+}
+
+.News-pubDate,
+.News-description {
+  padding-left: 15px;
+}
+
+.News-description {
+  font-size: 0.8rem;
+}
+
+.News-pubDate {
+  color: cadetblue;
+  font-size: 0.6rem;
+}
