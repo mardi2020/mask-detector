@@ -8,7 +8,7 @@ function News() {
 
   useEffect(() => {
     getNews().then((data) => {
-      setNewsList(data.newslist.items);
+      data.newslist ? setNewsList(data.newslist.items) : setNewsList([]);
     });
   }, []);
 

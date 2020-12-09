@@ -51,7 +51,7 @@ function CovidStatistics() {
 
   useEffect(() => {
     getCovidNum(today, today_minus7).then((datas) => {
-      datas.data ? setItem(datas.data.body.items.item) : setItem();
+      datas.data ? setItem(datas.data.body.items.item) : setItem([]);
       setIsUpdate(true);
     });
     setCovidData({
@@ -59,7 +59,7 @@ function CovidStatistics() {
       datasets: [
         {
           label: "Covid Datasets",
-          data: decideCnt ? decideCnt : [34, 45, 66, 20, 32, 55, 98],
+          data: decideCnt ? decideCnt : [0, 0, 0, 0, 0, 0, 0],
           fill: true,
           barPercentage: 0.5,
         },
