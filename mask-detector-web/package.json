@@ -1,5 +1,5 @@
 {
-  "name": "mask-detector-web",
+  "name": "mask-detector",
   "version": "0.1.0",
   "dependencies": {
     "axios": "^0.21.0",
@@ -38,6 +38,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ],
-    "homepage": "https://dakyunggo.github.io/mask-detector-web/"
+    "homepage": "https://dakyunggo.github.io/mask-detector/"
   }
 }
