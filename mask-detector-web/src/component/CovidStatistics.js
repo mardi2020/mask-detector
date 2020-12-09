@@ -9,6 +9,7 @@ function CovidStatistics() {
   const today = moment().format("YYYYMMDD");
   const today_minus7 = moment().subtract(7, "days").format("YYYYMMDD");
   const [item, setItem] = useState([]);
+  const [isUpate, setIsUpdate] = useState(false);
   let decideCnt = [];
   let labels = [];
   let dataColor = [
@@ -51,6 +52,7 @@ function CovidStatistics() {
   useEffect(() => {
     getCovidNum(today, today_minus7).then((datas) => {
       datas.data ? setItem(datas.data.body.items.item) : setItem();
+      setIsUpdate(true);
     });
     setCovidData({
       labels: ["1", "2", "3", "4", "5", "6", "7"],
@@ -117,7 +119,7 @@ function CovidStatistics() {
         },
       ],
     });
-  }, [item]);
+  }, [isUpate]);
 
   return (
     <div className="CovidStatistics__Wrapper">
